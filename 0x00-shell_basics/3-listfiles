@@ -1,2 +1,3 @@
 #!/bin/bash
-less 3-listfiles
+ls -la | less
+
