@@ -21,4 +21,4 @@ sudo sed -i '/^\slocation.*/i \        error_page 404 /custom_404.html;' /etc/ng
 sudo sed -i '/^\slocation.*/i \        add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 
 # run server
-sudo service nginx start
+sudo service nginx restart
