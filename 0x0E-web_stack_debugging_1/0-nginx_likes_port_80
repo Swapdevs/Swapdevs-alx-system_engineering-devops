@@ -5,4 +5,6 @@
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
-service nginx status
+curl 0:80
+./0-nginx_likes_port_80 > /dev/null 2&>1
+curl 0:80
