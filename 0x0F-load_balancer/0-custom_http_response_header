@@ -20,4 +20,4 @@ echo "$FOUR" > "$ERRORFILE"
 sed -i "37i\ $ERRORREDIRECT" "$FILE"
 
 sed -i "37i\ $CUSTOMHEADER" "$FILE"
-service nginx restart
+sudo service nginx restart
