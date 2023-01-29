@@ -35,13 +35,13 @@ defaults
 
 # start of parameters for beta-scribbles.tech
 frontend swapdevs.tech-http-frontend
-	bind	 *:80
+	bind	 *:443 ssl crt /etc/letsencrypt/live/www.swapdevs.tech/fullchain.pem
 	http-request set-header X-Forwarded-Proto http
 	default_backend	 swapdevs.tech-backend
 
 
 frontend  beta-scribbles.tech-https-frontend
-	bind *:443 ssl crt /etc/ssl/beta-scribbles.tech.pem
+	bind *:443 ssl crt /etc/letsencrypt/live/www.swapdevs.tech/fullchain.pem
 	http-request set-header X-Forwarded-Proto https
         default_backend swapdevs.tech-backend
 
