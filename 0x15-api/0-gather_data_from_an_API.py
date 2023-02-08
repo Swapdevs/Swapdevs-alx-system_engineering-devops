@@ -6,7 +6,7 @@ Implemented using recursion
 """
 import re
 import requests
-import sys1
+import sys
 
 
 API = "https://jsonplaceholder.typicode.com"
@@ -24,9 +24,9 @@ if __name__ == '__main__':
             todos_done = list(filter(lambda x: x.get('completed'), todos))
             print(
                 'Employee {} is done with tasks({}/{}):'.format(
-                     user_name,
-                     len(todos_done),
-                     len(todos)
+                    user_name,
+                    len(todos_done),
+                    len(todos)
                 )
             )
             for todo_done in todos_done:
