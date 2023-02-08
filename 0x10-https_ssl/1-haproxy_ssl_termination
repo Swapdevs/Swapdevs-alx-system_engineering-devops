@@ -33,33 +33,12 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-<<<<<<< HEAD
-# start of parameters for beta-scribbles.tech
-frontend swapdevs.tech-http-frontend
-	bind	 *:443 ssl crt /etc/letsencrypt/live/www.swapdevs.tech/fullchain.pem
-	http-request set-header X-Forwarded-Proto http
-	default_backend	 swapdevs.tech-backend
+frontend myfrontend
+	bind *:80
+	bind *:443 ssl crt /etc/haproxy/certs/www.swapdevs.tech.pem
+	default_backend myservers
 
-
-frontend  beta-scribbles.tech-https-frontend
-	bind *:443 ssl crt /etc/letsencrypt/live/www.swapdevs.tech/fullchain.pem
-	http-request set-header X-Forwarded-Proto https
-        default_backend swapdevs.tech-backend
-
-
-backend swapdevs.tech-backend
-=======
-#--beta-scribbles.tech-params-begin--
-backend beta-scribbles.tech-backend
->>>>>>> 8c0e4171257556bfd050bdc1eba7b5b4dfe33075
-        balance roundrobin
-        server 72147-web-01 100.25.29.105:80 check
-        server 72147-web-02 3.83.227.114:80 check
-frontend beta-scribbles.tech-frontend
-        bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/www.swapdevs.tech.pem
-        http-request redirect scheme https code 301 if { hdr(Host) -i www.swapdevs.tech } !{ ssl_fc }
-        default_backend myservers
-        mode http
-        default_backend beta-scribbles.tech-backend
-#--beta-scribbles.tech-params-end--
+backend myservers
+	balance roundrobin
+	server web-01 54.173.221.66:80 check
+	server web-02 54.227.224.33:80 check
