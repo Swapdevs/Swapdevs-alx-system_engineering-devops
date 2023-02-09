@@ -33,13 +33,14 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-backend beta-scribbles.tech-backend
+backend web-servers
         balance roundrobin
         server 72147-web-01 54.173.221.66:80 check
         server 72147-web-02 54.227.224.33:80 check
-frontend beta-scribbles.tech-frontend
-        bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/www.swapdevs.tech.pem
+frontend swapdevs.tech-frontend
+        bind 54.90.17.10:80
+        bind 54.90.17.10:443 ssl crt /etc/haproxy/certs/www.swapdevs.tech.pem
 	http-request redirect scheme https code 301 if { hdr(Host) -i www.swapdevs.tech } !{ ssl_fc }
+	stats url /haproxy?stats
         mode http
-        default_backend myservers
+        default_backend web-servers
