@@ -1,6 +1,6 @@
 # 0x19-postmortem
 
-https://ibb.co/TKSK4Rq
+![image](https://user-images.githubusercontent.com/32038582/226728557-9e4b9e52-4e42-4f51-a4a0-4f81dd370a5a.png)
 
 # Summary
 23th Oct. 2021 From 3:45 PM to 4:12 PM UTC+1 all requests for the homepage to our web server got a 503 Service Unavailable.
